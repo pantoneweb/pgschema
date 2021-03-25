@@ -2,6 +2,7 @@
 
 namespace Racklin\PGSchema;
 
+use Illuminate\Contracts\Events\Dispatcher;
 use Illuminate\Support\ServiceProvider;
 use Racklin\PGSchema\Commands\PGMigrateCommand;
 use Racklin\PGSchema\Commands\PGRefreshCommand;
@@ -28,7 +29,7 @@ class PGSchemaServiceProvider extends ServiceProvider
             return new PGSchema();
         });
         $this->app->singleton('pgschema.migrate', function ($app) {
-            return new PGMigrateCommand($app['migrator']);
+            return new PGMigrateCommand($app['migrator'], $app[Dispatcher::class]);
         });
         $this->app->singleton('pgschema.rollback', function ($app) {
             return new PGRollbackCommand($app['migrator']);
