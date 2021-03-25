@@ -12,9 +12,9 @@
     "require": {
         "php": "^7.4",
         "laravel/framework": "8.*",
-        "illuminate/support": "5.*",
-        "illuminate/console": "5.*",
-        "illuminate/database": "5.*"
+        "illuminate/support": "8.*",
+        "illuminate/console": "8.*",
+        "illuminate/database": "8.*"
     },
     "autoload": {
         "psr-0": {
